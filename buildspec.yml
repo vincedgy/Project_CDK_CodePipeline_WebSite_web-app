@@ -3,20 +3,20 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      nodejs: 20
     commands:
-      - npm install -g yarn
+      - npm install -g pnpm
   pre_build:
     commands:
       - echo Build started on `date`
-      - yarn install
+      - pnpm install
       - echo "Prepare env"
       - touch .env
       - echo "WEB_APP_BASE_URL=$WEB_APP_BASE_URL" >> .env
       - cat .env
   build:
     commands:
-      - yarn build
+      - pnpm build
   post_build:
     commands:
       - echo Build completed on `date`
