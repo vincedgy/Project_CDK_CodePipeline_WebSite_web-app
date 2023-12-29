@@ -5,18 +5,19 @@ phases:
     runtime-versions:
       nodejs: 14
     commands:
-      - npm install -g yaml
+      - npm --version
+      - echo "Installing dependencies..."
   pre_build:
     commands:
       - echo Build started on `date`
-      - yaml install
+      - npm install
       - echo "Prepare env"
       - touch .env
       - echo "WEB_APP_BASE_URL=$WEB_APP_BASE_URL" >> .env
       - cat .env
   build:
     commands:
-      - yaml build
+      - npm build
   post_build:
     commands:
       - echo Build completed on `date`
